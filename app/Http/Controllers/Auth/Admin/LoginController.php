@@ -79,4 +79,13 @@ class LoginController extends Controller
         return redirect()->back()->withInput($request->only('email', 'remember'))
             ->withErrors(['email' => 'Invalid email or password']);
     }
+
+    public function logout(Request $request)
+    {
+        $this->guard()->logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/admin/login');
+    }
 }
