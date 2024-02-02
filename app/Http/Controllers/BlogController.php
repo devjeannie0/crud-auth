@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use Illuminate\Http\Request;
+use App\Http\Requests\CreateRequest;
+
 
 class BlogController extends Controller
 {
@@ -27,9 +29,10 @@ class BlogController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CreateRequest $request)
     {
-        //
+        Blog::create($request->getData());
+        return redirect()->back()->with('success','Post created successfully.');
     }
 
     /**
