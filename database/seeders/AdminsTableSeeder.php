@@ -14,7 +14,7 @@ class AdminsTableSeeder extends Seeder
     {
         \App\Models\Admin::factory(10)->create();
 
-        \App\Models\User::factory()->create([
+        \App\Models\Admin::factory()->create([
             'name' => 'Test Admin',
             'email' => 'admin@example.com',
         ]);
