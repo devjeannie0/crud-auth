@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\Admin\LoginController;
 use App\Http\Controllers\Auth\Admin\RegisterController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,7 +17,6 @@ use App\Http\Controllers\AdminController;
 */
 
 Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 /*
 |--------------------------------------------------------------------------
@@ -31,4 +31,8 @@ Route::post('/admin/logout',[LoginController::class, 'logout'])->name('admin.log
 
 Route::group(['middleware' => 'admin.auth'], function () {
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+});
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/dashboard', [UserController::class, 'index'])->name('dashboard');
 });
