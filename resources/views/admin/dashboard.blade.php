@@ -14,8 +14,7 @@
                             {{ auth()->user}}
                         </div>
                     @endif
-
-                    {{ __('You are logged in!') }}
+                    <list></list>
                 </div>
             </div>
         </div>
