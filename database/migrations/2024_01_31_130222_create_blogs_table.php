@@ -13,11 +13,9 @@ return new class extends Migration
     {
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')
-                ->nullable()
-                ->constrained();
             $table->string('title');
             $table->string('content');
+            $table->integer('posted_by')->unsigned()->comment('Logged in user who added the blog');
             $table->timestamps();
         });
     }
