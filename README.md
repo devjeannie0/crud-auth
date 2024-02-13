@@ -2,11 +2,12 @@
  Multiple Guards with CRUD
 
 ```bash
-$ composer install
+# Install the composer dependencies
+composer install
 
-$ nmp install
+# Install the npm packages
+nmp install
 
-$ npm run dev 
-
-$ php artisan serve
+npm run dev 
+php artisan serve
 ```
